@@ -50,3 +50,4 @@ These are entry points, not sealed boxes. Topics can belong to several branches,
 - Use primary sources for important or contested claims, alongside trustworthy textbooks and reviews.
 - Keep competing models and legitimate disagreements visible.
 - Treat this map as a revisable guide; changes should improve accuracy and usefulness, not enforce a single philosophical interpretation of physics.
+@

@@ -1,0 +1,38 @@
+"""Curated, source-linked topic data for the 20-map research atlas."""
+SOURCES={
+'PDG26':'Particle Data Group, Review of Particle Physics 2026','SM':'CERN, The Standard Model','JUNO':'JUNO Collaboration, 2026 oscillation results','DESI':'DESI Collaboration, DR2 Ly-alpha, 2026','DM':'LZ Collaboration, 2026 search update','LVK':'LIGO-Virgo-KAGRA, GWTC-4 tests of GR, 2026','INF':'PDG 2026, Inflation review','GUT':'PDG 2026, Grand Unified Theories','SUSY':'PDG 2026, Supersymmetry theory and experiment','STR':'Cvetic et al., String Theory and Particle Physics, arXiv:2204.01742','SW':'Basile et al., Asymptotic safety, quantum gravity and swampland, SciPost 2026','ISL':'Antonini et al., An apologia for islands, arXiv:2506.04311','SYM':'Schafer-Nameki, ICTP Lectures on Generalized Symmetries, Phys.Rept. 2024','BOOT':'Hartman et al., Analytic Conformal Bootstrap, arXiv:2202.11012','AMP':'Bern & Trnka, Scattering Amplitudes and Applications, arXiv:2210.03146','MATH':'Bah et al., Snowmass Whitepaper: Physical Mathematics, arXiv:2203.05078','QCD':'PDG 2026, Lattice QCD review','FQAH':'Cao et al., Fractional Quantum Anomalous Hall Effect, Annual Reviews 2026','HTS':'Ramakrishnan 2025; La2CuO4 multilayer ab initio, PRX 2025','NI':'Physics Reports 2026, Nickelate superconductors','MB':'Chandran et al., Quantum Many-Body Scars, Annual Reviews','FUS':'LLNL, NIF ignition results and annual reports 2025-26'}
+URL={k:v for k,v in {
+'PDG26':'https://pdg.lbl.gov/2026/reviews/contents_sports.html','SM':'https://home.web.cern.ch/science/physics/standard-model/','JUNO':'https://arxiv.org/abs/2609.37895','DESI':'https://www.desi.lbl.gov/2026/07/30/new-desi-dr2-lyman-alpha-results-shed-light-on-dark-energy/','DM':'https://lz.lbl.gov/','LVK':'https://ligo.org/science-summaries/o4b_tgr/','INF':'https://pdg.lbl.gov/2026/reviews/rpp2026-rev-inflation.pdf','GUT':'https://pdg.lbl.gov/2026/reviews/rpp2026-rev-guts.pdf','SUSY':'https://pdg.lbl.gov/2026/reviews/rpp2026-rev-susy-2-experiment.pdf','STR':'https://arxiv.org/abs/2204.01742','SW':'https://arxiv.org/abs/2502.12290','ISL':'https://arxiv.org/abs/2506.04311','SYM':'https://arxiv.org/abs/2305.18296','BOOT':'https://arxiv.org/abs/2202.11012','AMP':'https://arxiv.org/abs/2210.03146','MATH':'https://arxiv.org/abs/2203.05078','QCD':'https://pdg.lbl.gov/2026/reviews/rpp2026-rev-lattice-qcd.pdf','FQAH':'https://doi.org/10.1146/annurev-conmatphys-031524-071133','HTS':'https://arxiv.org/abs/2501.02351','NI':'https://doi.org/10.1016/j.physrep.2026.06.003','MB':'https://arxiv.org/abs/2206.11528','FUS':'https://lmf.llnl.gov/science/achieving-fusion-ignition'}.items()}
+TOPICS=[
+('总览：尺度、理论与证据','研究版图｜effective description','物理学如何从对称性、尺度与观测约束构造可检验理论。','S_eff = ∫ d⁴x √−g L_eff','EFT按能标组织自由度；图中各方向是并行研究纲领，不构成单一必然路线。',['自由度与尺度','对称性与守恒','可观测量','有效场论','计算与实验','开放边界'],'PDG26 SM'),
+('引力：广义相对论与量子化','时空几何｜强场检验','GR在宏观引力中经受高精度检验；量子引力的完整微观理论仍未建立。','Gμν + Λgμν = 8πG Tμν','低能量子引力可作为EFT预测；强场波形通过引力波约束GR偏差。',['几何动力学','引力波','有效场论','渐近安全','圈量子路线','紫外完备性'],'LVK SW'),
+('标准模型与四种相互作用','规范场｜电弱统一','强、电磁、弱相互作用在量子场论中描述；引力由广义相对论描述。','G_SM = SU(3)_C × SU(2)_L × U(1)_Y','电弱统一已实验确立；强与电弱的大统一、以及含引力的统一均未证实。',['QCD与渐近自由','电弱破缺','Higgs机制','规范对称性','引力接口','标准模型缺口'],'PDG26 SM'),
+('中微子、味与宇宙物质不对称','混合矩阵｜CP破坏','中微子振荡表明质量态与味态不同；质量排序与CP相仍是研究焦点。','P(να→νβ)=|Σᵢ Uβi e⁻ⁱEᵢL U*αi|²','JUNO 2026给出正常排序至少2.1σ指示，不等于确定；轻子生成重子不对称仍属模型机制。',['PMNS参数','质量排序','Dirac/Majorana','无中微子双β','轻子CP相','重子生成'],'JUNO PDG26'),
+('宇宙学：ΛCDM、暗能量与张力','背景膨胀｜结构增长','ΛCDM是成功基准；H₀与结构增长差异、暗能量状态方程持续受检验。','H²(a)=H₀²[Ωm a⁻³+Ωr a⁻⁴+ΩDE(a)]','DESI DR2 Lyα加强距离约束；是否演化取决于数据组合、超新星样本与参数化。',['CMB初始条件','BAO距离尺','Ia型超新星','弱透镜增长','H₀张力','暗能量演化'],'DESI PDG26'),
+('暗物质与隐藏扇区','引力证据｜粒子搜索','天体与宇宙学证据支持额外引力源，但微观粒子身份未知。','ΩDM h² ≈ 0.12  (ΛCDM基准)','LZ 2026报告一个高能核反冲候选事件，整体背景假设张力2.6σ，尚非发现。',['WIMP与直接探测','轴子与共振腔','轻暗物质','隐藏扇区','宇宙结构形成','改引力对照'],'DM PDG26'),
+('早期宇宙、暴胀与原初扰动','量子涨落｜宇宙学观测','暴胀为初始条件与原初扰动提供机制，但具体场与势能尚未确定。','Pζ(k) ≈ H²/(8π² ε M_Pl²)','原初张量、非高斯性与谱特征是判别模型的目标；探测不到不等于否定所有暴胀。',['慢滚与多场','原初功率谱','非高斯性','原初引力波','再加热','小尺度结构'],'INF PDG26'),
+('黑洞、热力学与信息','熵｜幺正性','半经典霍金计算与量子幺正演化之间的张力推动信息问题研究。','S_gen = A/(4G_N) + S_out','量子极值面与岛公式在指定半经典模型中重现Page曲线；一般现实黑洞完整演化仍在研究。',['视界热力学','霍金辐射','Page曲线','复制技巧','量子极值面','辐射重建'],'ISL'),
+('量子场论、重整化群与广义对称性','尺度流｜缺陷算符','RG固定点、异常与高阶对称性提供约束强耦合量子场论的工具。','β(g)=μ dg/dμ','高阶与非可逆对称性以拓扑缺陷表述；约束相结构和允许的红外流。',['Wilson RG','共形固定点',' ’t Hooft异常','高阶对称性','非可逆缺陷','相与边界'],'SYM BOOT'),
+('非微扰QCD、格点与致密物质','路径积分｜符号问题','格点QCD以离散时空数值计算强相互作用；有限重子密度有符号问题。','Z=∫DUDψDψ̄ exp(−S_E)','高温零密度可控；中子星密度、相图端点和解析延拓误差仍是关键难题。',['禁闭与手征','格点外推','有限温相变','重子密度符号问题','核物质状态方程','重离子观测'],'QCD PDG26'),
+('超对称与大统一','代数扩展｜规范耦合','SUSY联系玻色与费米自由度；GUT把标准模型规范群嵌入更大群。','{Qα,Q̄β}=2σᵘαβ Pᵤ','LHC尚未发现超对称粒子；限制依赖质量谱与衰变假设，低能SUSY并非必然。GUT质子衰变待测。',['超多重态','软破缺','中性ino暗物质','耦合跑动','质子衰变','模型依赖限制'],'SUSY GUT PDG26'),
+('弦论、紧化与景观','世界面｜额外维度','弦论提供量子引力候选框架；紧化可导出低能场与规范结构。','S_string ∝ ∫d²σ √h hᵃᵇ∂ₐX·∂ᵦX','真空选择、de Sitter构造及可检验低能预测仍有争论；景观/Swampland界限含猜想。',['世界面量子化','D膜与对偶','Calabi–Yau紧化','F理论','真空景观','Swampland猜想'],'STR SW'),
+('全息、量子信息与时空','纠缠楔｜引力对偶','AdS/CFT在特定边界条件下连接引力与无引力量子场论。','S_A = Area(γ_A)/(4G_N) + S_bulk','岛与纠缠楔重构给出半经典信息结果；将其推广到宇宙学时空仍非既成对应。',['AdS/CFT字典','Ryu–Takayanagi','纠缠楔重构','岛公式','复杂度猜想','量子宇宙学限制'],'ISL STR'),
+('散射振幅与共形bootstrap','解析性｜幺正性','不依赖拉氏量细节的S矩阵与CFT一致性条件可约束理论空间。','A(s,t) ↔ poles + cuts + unitarity','色运动学双拷贝、正几何及数值bootstrap是强力计算框架；适用域与完备性各有边界。',['振幅解析结构','广义幺正性','色运动学双拷贝','正几何','数值bootstrap','EFT界限'],'AMP BOOT'),
+('数学物理：几何、拓扑与范畴','结构映射｜可解性','表示论、几何、拓扑与范畴语言常揭示场论中的对偶与不变量。','Z_TQFT(M) = topological invariant of M','数学结构帮助分类并构造物理模型；形式对应本身不自动给出自然界实现。',['纤维丛与联络','指标定理与异常','镜像对称','几何Langlands','拓扑场论','张量范畴'],'MATH SYM'),
+('拓扑量子物质与分数量子反常霍尔','能带拓扑｜分数化','拓扑能带与相互作用可产生非平庸拓扑序及分数化激发。','C=(1/2π)∫BZ Ω(k)d²k','莫尔体系已展示零场分数化霍尔态；非阿贝尔任意子和微观稳定机制仍待检验。',['Berry曲率','Chern能带','分数量子霍尔','对称保护相','莫尔平带','任意子操控'],'FQAH'),
+('强关联、量子临界与奇异金属','无准粒子区｜普适标度','强关联电子可偏离Landau费米液体；量子临界与奇异金属机制尚无单一共识。','ρ(T) ≈ ρ₀ + A T  (部分材料区间)','线性电阻率不是普适定律；需区分量子临界、无序、声子及多带贡献。',['Hubbard模型','Mott转变','量子临界标度','SYK启发','纠缠与输运','高磁场判别'],'HTS MB'),
+('高温超导：铜氧、铁基、镍酸盐与氢化物','配对机制｜材料平台','不同超导家族须分别研究；传统声子配对与非常规配对证据不可混为一谈。','T_c ∝ exp[−1/(N(0)V)]  (弱耦合BCS示意)','铜氧化物配对起源未解决；氢化物需极高压；镍酸盐近期扩展材料家族，机制比较仍在进行。',['相图与赝能隙','d波与配对涨落','自旋/电荷序','镍酸盐轨道','高压氢化物','判别实验'],'HTS NI'),
+('非平衡量子动力学与量子信息','淬火演化｜测量反馈','孤立、开放与受测量系统呈现不同热化、纠缠增长和信息流规律。','i∂ₜ|ψ⟩=H|ψ⟩;  dρ/dt=−i[H,ρ]+ΣⱼD[Lⱼ]ρ','多体scar、测量诱导转变与误差校正码拓展非平衡图景；有限尺寸与噪声是核心控制因素。',['ETH与热化','多体scar','MBL与局域性','测量诱导转变','量子纠错','可控量子模拟'],'MB SYM'),
+('等离子体、湍流与聚变','多尺度非线性｜实验验证','磁流体与动理学描述跨尺度等离子体；湍流、重联与输运制约聚变。','∂ₜB=∇×(v×B)+η∇²B','NIF靶增益超过1不等于电厂净能量；重复靶、驱动效率和工程循环仍待解决。',['MHD与动理学','磁重联','各向异性湍流','惯性约束','磁约束','能量增益口径'],'FUS')]
+SOURCES={k:(v,URL[k],'用于核对本图所述理论框架、数据状态或研究方法；相关推断以图内辨析为准。') for k,v in SOURCES.items()}
+MAPS=[]
+for i,(title,sub,desc,eq,bound,labels,refs) in enumerate(TOPICS,1):
+    ids=refs.split();a,b=labels[:3],labels[3:]
+    nodes=[(labels[j],['确定自由度与对称性。','导出可检验的定量预言。','数值计算连接实验。','建立竞争理论描述。','寻找区分性观测信号。','估计误差与适用范围。'][j],'研究中') for j in range(6)]
+    cards=[]
+    facts=[desc,bound,'成熟工具提供可控计算与检验。','竞争模型须给出不同的可测预言。','跨尺度外推要注明假设与误差。','开放问题需要新数据或新方法。']
+    for j,label in enumerate(labels):
+        detail=[f'{label}：{desc}',f'关键约束：{bound}',f'研究操作：围绕“{label}”构造可计算量或观测量，与独立数据比较；报告模型假设、系统误差和适用能标。'][j%3]
+        cards.append((label,['框架','证据','方法','比较','限制','前沿'][j],[facts[j],detail,f'判别问题：哪些测量或推导能区分{label}下的竞争机制？需检验参数退化、近似边界与可重复性。'],ids))
+    edges=[(0,1,'构造'),(1,2,'预言'),(3,4,'检验'),(4,5,'区分'),(0,3,'依赖'),(1,4,'约束')]
+    MAPS.append(dict(id=i,title=f'{i:02d} {title}',subtitle=sub,graph_title='理论结构 → 计算/观测 → 判别问题',nodes=nodes,edges=edges,equations=[(eq,desc),(f'观测 O ↔ 参数 θ','通过似然、系统误差模型与独立数据进行比较。'),(f'模型 M: 𝒫(data | θ, M)','结论依赖先验、近似、尺度与边界条件。')],cards=cards,boundary=bound,links='见总索引：'+', '.join(str(x) for x in [max(1,i-1),min(20,i+1)])))

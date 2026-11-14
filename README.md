@@ -50,4 +50,8 @@ These are entry points, not sealed boxes. Topics can belong to several branches,
 - Use primary sources for important or contested claims, alongside trustworthy textbooks and reviews.
 - Keep competing models and legitimate disagreements visible.
 - Treat this map as a revisable guide; changes should improve accuracy and usefulness, not enforce a single philosophical interpretation of physics.
-@
+
+## Math Equations and Enviroment
+
+Obsidian is used to read the md documents in this repo. Please make the math equations comply with the Obsidian format
+

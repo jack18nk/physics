@@ -174,8 +174,8 @@ def clean3d(ax, elev=22, azim=-60, box=True):
 
 
 def box(ax, x, y, text, fc="#ffffff", ec=INK, fs=9.5, color=INK, w=None, h=None, weight="normal",
-        ha="center", pad=0.35, lw=1.0, style="round", zorder=3, **kw):
-    bb = dict(boxstyle=f"{style},pad={pad}", fc=fc, ec=ec, lw=lw)
+        ha="center", pad=0.35, lw=1.0, style="round", zorder=3, ls="-", **kw):
+    bb = dict(boxstyle=f"{style},pad={pad}", fc=fc, ec=ec, lw=lw, linestyle=ls)
     return ax.text(x, y, text, ha=ha, va="center", fontsize=fs, color=color, weight=weight, bbox=bb,
                    zorder=zorder, **kw)
 

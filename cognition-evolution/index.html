@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>How mathematical and physical cognition evolve — 20 figures</title>
+<style>
+  body { margin: 0; font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; background: #faf8f3; color: #1f1f1f; }
+  header { padding: 32px 48px 8px; }
+  h1 { margin: 0 0 6px; font-size: 28px; }
+  header p { margin: 0; color: #6b6b6b; max-width: 980px; line-height: 1.5; }
+  .legend span { display: inline-block; margin-right: 18px; font-size: 14px; }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+  section { padding: 8px 48px 24px; }
+  h2 { font-size: 15px; letter-spacing: .08em; text-transform: uppercase; color: #6b6b6b; margin: 24px 0 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 22px; }
+  figure { margin: 0; background: #fff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.08); overflow: hidden; }
+  figure img { width: 100%; display: block; cursor: zoom-in; border-bottom: 1px solid #eee; }
+  figcaption { padding: 12px 16px 16px; font-size: 14px; line-height: 1.45; }
+  figcaption b { display: block; font-size: 15px; margin-bottom: 4px; }
+  #lightbox { position: fixed; inset: 0; background: rgba(20,20,20,.92); display: none; overflow: auto; z-index: 9; cursor: zoom-out; }
+  #lightbox img { display: block; margin: 20px auto; max-width: none; width: min(2700px, 98vw); }
+</style>
+</head>
+<body>
+<header>
+  <h1>How mathematical and physical cognition evolve — from simple to complex</h1>
+  <p>Twenty figures, each read left→right, top→bottom from simpler to more abstract ideas. Plotted curves and numbers are
+     computed (matplotlib + numpy); drawings are schematic. Click any figure to enlarge.</p>
+  <p class="legend" style="margin-top:10px">
+    <span><i style="background:#2a5d9f"></i>mathematical cognition</span>
+    <span><i style="background:#c4512c"></i>physical cognition</span>
+    <span><i style="background:#6a4c93"></i>both together</span>
+  </p>
+</header>
+<div id="lightbox" onclick="this.style.display='none'"><img alt=""></div>
+<section id="gallery"></section>
+<script>
+const groups = [
+  ["Overview", [
+    ["01-ladder-of-abstraction", "Ladder of abstraction", "Six levels from perception to modern structural theories, for mathematics and physics side by side."],
+    ["02-cognitive-roots", "Cognitive roots", "Inborn number sense, subitizing, intuitive physics and spatial maps — the starting kit of every human mind."],
+  ]],
+  ["Mathematical cognition", [
+    ["03-evolution-of-number", "Evolution of number", "Tallies → place value → zero → negatives → rationals → irrationals → complex numbers → quaternions → the number tower."],
+    ["04-evolution-of-geometry", "Evolution of geometry", "Rope-stretching, Euclid, coordinates, projective, non-Euclidean, curvature, topology."],
+    ["05-from-areas-to-calculus", "From areas to calculus", "Exhaustion, indivisibles, tangents, the fundamental theorem, limits and series."],
+    ["06-from-equations-to-structure", "From equations to structure", "Word problems, symbolic algebra, the cubic, Galois symmetry, groups, vector spaces, categories."],
+  ]],
+  ["Physical cognition", [
+    ["07-evolution-of-motion", "Evolution of motion", "Aristotle to Galileo, Kepler, Newton, Lagrange/Hamilton, chaos."],
+    ["08-space-and-time", "Space and time", "Absolute space, Galilean relativity, Minkowski light cones, time dilation, curved spacetime."],
+    ["09-evolution-of-light", "Evolution of light", "Rays, refraction, waves and interference, the spectrum, electromagnetic waves, photons."],
+    ["10-evolution-of-matter", "Evolution of matter", "Four elements, atoms, the periodic table, nucleus, quantum orbitals, the Standard Model."],
+    ["11-heat-energy-entropy", "Heat, energy, entropy", "Caloric to energy conservation, Carnot, kinetic theory, Boltzmann entropy, phase transitions (Ising)."],
+  ]],
+  ["Both together", [
+    ["12-probability-to-quantum", "From probability to quantum", "Dice, the normal law, random walks, wave functions, tunnelling, entanglement."],
+    ["13-fields-and-unification", "Fields and unification", "Action at a distance, lines of force, potentials, Maxwell, gauge symmetry, running couplings."],
+    ["14-co-evolution-timeline", "Co-evolution timeline", "2300 years of mathematics and physics feeding each other, with arrows where ideas crossed over."],
+    ["15-what-is-a-state", "What is a 'state'?", "From a position to phase space, configuration space, fields, Hilbert space and Fock space."],
+    ["16-evolution-of-symmetry", "Evolution of symmetry", "Visible symmetry, Platonic solids, wallpaper groups, crystals, Noether, Lorentz, SU(3), the Weinberg angle."],
+    ["17-evolution-of-dimension", "Evolution of dimension", "Building up dimensions, the tesseract, Flatland, n-balls, infinite and fractional dimensions, extra dimensions."],
+    ["18-evolution-of-gravity", "Evolution of gravity", "Galileo's thought experiment, the Moon test, Lagrange points, Mercury, light bending, GPS, gravitational waves, black holes."],
+    ["19-tools-that-extend-thinking", "Tools that extend thinking", "Numerals, the abacus, slide rule, difference engine, graphs, numerical methods, Monte Carlo, automata, computer proof."],
+    ["20-learning-pathway", "One mind's journey", "A prerequisite map of how an individual's mathematical and physical understanding builds from infancy to research."],
+  ]],
+];
+const g = document.getElementById("gallery"), lb = document.getElementById("lightbox");
+for (const [title, figs] of groups) {
+  g.insertAdjacentHTML("beforeend", `<h2>${title}</h2>`);
+  const grid = document.createElement("div"); grid.className = "grid"; g.appendChild(grid);
+  for (const [file, name, desc] of figs) {
+    const n = file.slice(0, 2);
+    grid.insertAdjacentHTML("beforeend",
+      `<figure><img src="output/${file}.png" alt="${name}" loading="lazy"><figcaption><b>${n} · ${name}</b>${desc}</figcaption></figure>`);
+  }
+}
+g.addEventListener("click", e => {
+  if (e.target.tagName === "IMG") { lb.querySelector("img").src = e.target.src; lb.style.display = "block"; }
+});
+</script>
+</body>
+</html>

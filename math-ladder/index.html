@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The ladder of mathematics — from primary school to the frontier</title>
+<style>
+  body { margin: 0; font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; background: #faf8f3; color: #1f1f1f; }
+  header { padding: 32px 48px 8px; }
+  h1 { margin: 0 0 6px; font-size: 28px; }
+  header p { margin: 4px 0; color: #555; max-width: 1000px; line-height: 1.55; }
+  section { padding: 8px 48px 24px; }
+  h2 { font-size: 15px; letter-spacing: .08em; text-transform: uppercase; color: #6b6b6b; margin: 24px 0 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(440px, 1fr)); gap: 22px; }
+  figure { margin: 0; background: #fff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.08); overflow: hidden; }
+  figure img { width: 100%; display: block; cursor: zoom-in; border-bottom: 1px solid #eee; }
+  figcaption { padding: 12px 16px 16px; font-size: 14px; line-height: 1.45; }
+  figcaption b { display: block; font-size: 15px; margin-bottom: 4px; }
+  figcaption i { color: #a23b72; font-style: normal; }
+  #lightbox { position: fixed; inset: 0; background: rgba(20,20,20,.92); display: none; overflow: auto; z-index: 9; cursor: zoom-out; }
+  #lightbox img { display: block; margin: 20px auto; width: min(2800px, 98vw); }
+</style>
+</head>
+<body>
+<header>
+  <h1>The ladder of mathematics — from primary school to the research frontier</h1>
+  <p>Fourteen figures to study together with a child. Start with the big map (1), the "two ways of learning" picture (2) and
+     the olympiad→university bridge (3); use the toolbox (4) and the one-idea ladder (5) as models for discussing any
+     problem; then climb one strand at a time (6–11); finish with the frontier and the universe (12–13). Figure 14 is a
+     suggested study path. Click to enlarge.</p>
+</header>
+<div id="lightbox" onclick="this.style.display='none'"><img alt=""></div>
+<section id="gallery"></section>
+<script>
+const groups = [
+  ["The big picture", [
+    ["01-ladder-of-mathematics", "The ladder of mathematics", "Six strands from primary school to research, with prerequisite arrows. Olympiad topics sit exactly at the bridge from school to university mathematics.", "Use it to locate every problem set you choose."],
+    ["02-two-ways-of-learning", "Same problems, two ways of learning", "A catalogue of problem types vs. the same problems organised by nine big ideas, plus a matrix of ideas × olympiad categories × what they become later.", "Organise practice by idea as well as by category."],
+    ["03-olympiad-to-university-bridge", "Every olympiad trick is a window onto a theory", "Thirteen contest techniques traced to the general idea, the university subject and today's frontier.", "Tell your child where each trick leads."],
+  ]],
+  ["How to think", [
+    ["04-problem-solving-toolbox", "The problem-solver's toolbox", "Pólya's four steps and eight heuristics, each shown on a classic problem: small cases, pictures, symmetry, working backwards, invariants, extremal principle, pigeonhole, generalising.", "Ask 'which move did I use?' after each problem."],
+    ["05-one-idea-every-level", "One idea, climbed all the way up", "1 + 2 + … + n seen as dots, area, induction, handshakes, Pascal's triangle, integrals, Faulhaber sums, Pell equations and ζ(−1) = −1/12.", "Depth beats breadth."],
+  ]],
+  ["The six strands", [
+    ["06-number-theory-ladder", "Number theory", "Even and odd → sieve → Euclid → clock arithmetic → Fermat → Gaussian primes → prime number theorem → Riemann hypothesis → elliptic curves.", ""],
+    ["07-algebra-ladder", "Algebra", "Balance → area algebra → completing the square → Vieta → roots of unity → the world of roots → groups → linear maps → Galois correspondence.", ""],
+    ["08-geometry-ladder", "Geometry", "Cut and paste → Pythagoras → inscribed angles → Euler line & nine-point circle → power of a point → inversion → Pascal → curved space → topology.", ""],
+    ["09-combinatorics-ladder", "Combinatorics", "Tree diagrams → lattice paths → Pascal mod 2 → Königsberg → colouring invariants → Catalan → Ramsey → random graphs → Ramsey bounds today.", ""],
+    ["10-analysis-ladder", "Analysis (inequalities → the infinite)", "Limits → AM-GM → optimisation → Cauchy–Schwarz → Jensen → infinite sums → Taylor → Fourier → PDE and Navier–Stokes.", ""],
+    ["11-probability-ladder", "Probability", "Two dice → Galton board → linearity of expectation → Bayes → law of large numbers → random walks → CLT → Markov chains → random matrices.", ""],
+  ]],
+  ["Where it leads", [
+    ["12-map-of-modern-mathematics", "The frontier", "Fields of modern mathematics, their connections, recent breakthroughs and famous open problems.", ""],
+    ["13-mathematics-and-the-universe", "Mathematics and the universe", "Which mathematics describes which part of nature and technology.", ""],
+    ["14-study-path-together", "A study path to climb together", "Route by age (school, contests, reading), how the balance of study shifts, six questions after every problem, a weekly rhythm.", "Rules of thumb — adapt freely."],
+  ]],
+];
+const g = document.getElementById("gallery"), lb = document.getElementById("lightbox");
+for (const [title, figs] of groups) {
+  g.insertAdjacentHTML("beforeend", `<h2>${title}</h2>`);
+  const grid = document.createElement("div"); grid.className = "grid"; g.appendChild(grid);
+  for (const [file, name, desc, tip] of figs) {
+    grid.insertAdjacentHTML("beforeend",
+      `<figure><img src="output/${file}.png" alt="${name}" loading="lazy"><figcaption><b>${file.slice(0, 2)} · ${name}</b>${desc}${tip ? ` <i>${tip}</i>` : ""}</figcaption></figure>`);
+  }
+}
+g.addEventListener("click", e => {
+  if (e.target.tagName === "IMG") { lb.querySelector("img").src = e.target.src; lb.style.display = "block"; }
+});
+</script>
+</body>
+</html>

@@ -68,17 +68,17 @@ def fig06():
                "why: solvability depends on the symmetry group of the roots — the birth of group theory.")
     clean(ax, equal=False, xlim=(0, 10), ylim=(0, 10))
     rows = [("1", "antiquity", r"$x=-\frac{b}{a}$", True),
-            ("2", "Babylon c. 1800 BC", r"$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$", True),
-            ("3", "del Ferro, Tartaglia, Cardano 1545",
+            ("2", "Babylon", r"$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$", True),
+            ("3", "Cardano 1545",
              r"$t=\sqrt[3]{-\frac{q}{2}+\sqrt{\frac{q^2}{4}+\frac{p^3}{27}}}+\sqrt[3]{-\frac{q}{2}-\sqrt{\frac{q^2}{4}+\frac{p^3}{27}}}$",
              True),
             ("4", "Ferrari 1545", "reduce to a cubic 'resolvent'", True),
-            ("5", "Ruffini 1799, Abel 1824, Galois 1832", "no general formula in radicals", False)]
+            ("5", "Abel 1824", "no general formula in radicals", False)]
     for k, (deg, who, form, ok) in enumerate(rows):
         y = 9.0 - k * 1.95
         ax.text(0.25, y, f"degree {deg}", fontsize=10, weight="bold", color=MATH, va="center")
         ax.text(0.25, y - 0.55, who, fontsize=8, color=MUTED, va="center")
-        ax.text(2.4, y - 0.15, form, fontsize=10 if k != 2 else 8.6, va="center", color=INK)
+        ax.text(2.35, y - 0.15, form, fontsize=10 if k != 2 else 7.8, va="center", color=INK)
         ax.text(9.75, y - 0.15, "✓" if ok else "✗", fontsize=16, color="#2e7d32" if ok else "#c62828", ha="right",
                 va="center")
         if k < 4:
@@ -175,7 +175,7 @@ def fig06():
     ax = panel(fig, cs[8], 9, "Categories: maps between structures", "Eilenberg & Mac Lane 1945", "math",
                "Focus moves from objects to arrows. A diagram 'commutes' if all paths agree (g∘f = k∘h); a functor F "
                "maps one whole category into another, preserving composition — used in topology and quantum theory.")
-    clean(ax, equal=False, xlim=(0, 10), ylim=(0, 10))
+    clean(ax, equal=False, xlim=(0, 10.6), ylim=(0, 10))
 
     def square(ox, labels, col, fname=""):
         P = {"A": (ox, 7.5), "B": (ox + 3, 7.5), "C": (ox, 3.5), "D": (ox + 3, 3.5)}
@@ -191,9 +191,9 @@ def fig06():
         ax.text(ox + 1.5, 5.5, "↻", ha="center", va="center", fontsize=16, color=MUTED)
 
     square(0.9, {"A": "A", "B": "B", "C": "C", "D": "D"}, MATH)
-    square(6.1, {"A": "FA", "B": "FB", "C": "FC", "D": "FD"}, BOTH, fname="F")
-    arrow(ax, (4.3, 5.5), (5.6, 5.5), color=INK, lw=1.8)
-    ax.text(4.95, 6.0, "functor F", ha="center", fontsize=9.5)
+    square(6.7, {"A": "FA", "B": "FB", "C": "FC", "D": "FD"}, BOTH, fname="F")
+    arrow(ax, (4.45, 5.5), (5.75, 5.5), color=INK, lw=1.8)
+    ax.text(5.1, 6.0, "functor F", ha="center", fontsize=9.5)
     ax.text(5, 1.4, "g∘f = k∘h   ⇒   Fg∘Ff = Fk∘Fh", ha="center", fontsize=10.5, color=INK)
     footer(fig)
     save(fig, "06-from-equations-to-structure.png")
@@ -217,10 +217,10 @@ def fig07():
     ax.plot([1.4, 6.0, 6.0], [1.3, 5.6, 0.6], color=PHYS, lw=2.4)
     ax.text(3.2, 4.0, "violent\n(forced)", fontsize=9.5, color=PHYS, ha="center")
     ax.text(6.25, 3.0, "natural\n(downward)", fontsize=9.5, color=PHYS)
-    ax.annotate("", xy=(8.6, 4.8), xytext=(8.6, 6.4), arrowprops=dict(arrowstyle="-|>", color="#6d4c41", lw=2))
-    ax.text(8.9, 5.6, "earth", fontsize=9, color="#6d4c41")
-    ax.annotate("", xy=(8.6, 3.5), xytext=(8.6, 1.8), arrowprops=dict(arrowstyle="-|>", color="#e67e22", lw=2))
-    ax.text(8.9, 2.6, "fire", fontsize=9, color="#e67e22")
+    ax.annotate("", xy=(9.7, 4.8), xytext=(9.7, 6.4), arrowprops=dict(arrowstyle="-|>", color="#6d4c41", lw=2))
+    ax.text(9.5, 5.6, "earth falls", fontsize=9, color="#6d4c41", ha="right")
+    ax.annotate("", xy=(9.7, 3.5), xytext=(9.7, 1.8), arrowprops=dict(arrowstyle="-|>", color="#e67e22", lw=2))
+    ax.text(9.5, 2.6, "fire rises", fontsize=9, color="#e67e22", ha="right")
 
     ax = panel(fig, cs[1], 2, "Impetus", "Philoponus c. 530 · Buridan c. 1350", "phys",
                "The thrower gives the stone an internal 'impetus' that slowly wears off — a step toward inertia. "
@@ -252,13 +252,13 @@ def fig07():
     for t in range(6):
         p = top + d * (t ** 2) * (L / 25) * 0.98
         ax.add_patch(Circle(p + np.array([np.sin(angle), np.cos(angle)]) * 0.22, 0.22, fc=PHYS, alpha=0.35 + 0.13 * t))
-        ax.text(*(p + np.array([np.sin(angle), np.cos(angle)]) * 0.75), f"t={t}", fontsize=8, ha="center")
         if t > 0:
             q = top + d * ((t - 1) ** 2) * (L / 25) * 0.98
             m = (p + q) / 2 - np.array([np.sin(angle), np.cos(angle)]) * 0.45
             ax.text(*m, str(2 * t - 1), fontsize=10, color=MATH, weight="bold", ha="center", va="center")
     ax.text(5, -1.2, "distances per interval: 1, 3, 5, 7, 9   →   totals 1, 4, 9, 16, 25", ha="center",
             fontsize=9.3, color=MATH)
+    ax.text(6.5, 4.6, "ball positions at equal\ntime steps t = 0, 1, …, 5", fontsize=9, color=PHYS, ha="center")
 
     ax = panel(fig, cs[3], 4, "Projectiles are parabolas", "Galileo 1638", "phys",
                "Horizontal motion is uniform, vertical motion is accelerated: combined, a parabola. Launch at "
@@ -318,8 +318,8 @@ def fig07():
         rr = np.hypot(sol[:, 0], sol[:, 1])
         hit = np.argmax(rr < 1.0) if np.any(rr < 1.0) else len(rr)
         ax.plot(sol[:hit, 0], sol[:hit, 1], color=PALETTE[k], lw=1.8, label=f"{fac:.2f} v_c")
-    ax.legend(loc="lower right", fontsize=8)
-    clean(ax, xlim=(-2.3, 2.3), ylim=(-2.1, 1.6))
+    ax.legend(loc="lower left", fontsize=7.8)
+    clean(ax, xlim=(-2.5, 2.5), ylim=(-2.1, 1.6))
 
     ax = panel(fig, cs[6], 7, "Phase space", "Hamilton 1834 · Poincaré 1890", "both",
                "A state is a point (position q, momentum p); motion is a flow. Pendulum energy contours "
@@ -353,8 +353,8 @@ def fig07():
                 label=("true path" if eps == 0 else f"trial {k}") + f": S = {S(x):.3f}")
     ax.set_xlabel("time (s)")
     ax.set_ylabel("height (m)")
-    ax.legend(loc="upper right", fontsize=7.8)
-    ax.set_ylim(-0.4, 2.3)
+    ax.legend(loc="lower center", fontsize=7.6, ncol=2)
+    ax.set_ylim(-1.5, 2.2)
     plotstyle(ax)
 
     ax = panel(fig, cs[8], 9, "Deterministic chaos", "Poincaré 1890 · Lorenz 1963", "both",
@@ -524,26 +524,28 @@ def fig08():
                "they are symmetric; at the horizon r_s the outgoing edge becomes vertical; inside, every future "
                "path leads to r = 0.")
     ax.axvline(1, color=PHYS, lw=1.6, ls="--")
-    ax.text(1.03, 5.6, "horizon r = r_s", color=PHYS, fontsize=9)
+    ax.text(1.04, 1.68, "horizon r = r_s", color=PHYS, fontsize=9)
     ax.plot([0, 0], [0, 6], color=INK, lw=3)
-    ax.text(0.05, 5.6, "r = 0", fontsize=9)
-    for rr in [0.35, 0.6, 0.85, 1.0, 1.25, 1.6, 2.1, 2.8, 3.5]:
-        for tt in [1.0, 3.2]:
-            vin = np.array([-1.0, 1.0]) / np.sqrt(2)
-            if abs(rr - 1) < 1e-9:
-                vout = np.array([0.0, 1.0])
-            else:
-                slope = (1 + 1 / rr) / (1 - 1 / rr)
-                vout = np.array([1 / slope, 1.0])
-                vout /= np.linalg.norm(vout)
-            s = 0.75
-            ax.add_patch(Polygon([[rr, tt], [rr + s * vin[0], tt + s * vin[1]], [rr + s * vout[0], tt + s * vout[1]]],
-                                 fc="#fff3c4", ec="#d4a017", lw=1.2))
+    ax.text(0.05, 1.68, "r = 0", fontsize=9)
+    for rr in [0.3, 0.55, 0.8, 1.0, 1.3, 1.75, 2.3, 3.0, 3.7]:
+        tt = 0.95
+        vin = np.array([-1.0, 1.0]) / np.sqrt(2)
+        if abs(rr - 1) < 1e-9:
+            vout = np.array([0.0, 1.0])
+        else:
+            slope = (1 + 1 / rr) / (1 - 1 / rr)
+            vout = np.array([1 / slope, 1.0])
+            vout /= np.linalg.norm(vout)
+        s = 0.5
+        ax.add_patch(Polygon([[rr, tt], [rr + s * vin[0], tt + s * vin[1]], [rr + s * vout[0], tt + s * vout[1]]],
+                             fc="#fff3c4", ec="#d4a017", lw=1.2))
+        ax.plot(rr, tt, "o", color=INK, ms=2.5)
     ax.set_xlim(-0.1, 4.2)
-    ax.set_ylim(0.5, 6.1)
+    ax.set_ylim(0.75, 1.85)
+    ax.set_aspect("equal")
     ax.set_xlabel("r / r_s")
-    ax.set_ylabel("time")
     ax.set_yticks([])
+    ax.text(-0.05, 0.8, "future ↑", rotation=90, fontsize=8, color=MUTED, ha="right")
     plotstyle(ax, grid=False)
 
     ax = panel(fig, cs[8], 9, "Expanding space", "Friedmann 1922 · Lemaître 1927 · Hubble 1929", "phys",
@@ -756,7 +758,7 @@ def fig09():
     ax.set_xlim(100, 3000)
     ax.set_ylim(0, 90)
     ax.set_xlabel("wavelength (nm)")
-    ax.set_ylabel("spectral radiance (kW·sr⁻¹·m⁻²·nm⁻¹)")
+    ax.set_ylabel("radiance (kW/sr/m²/nm)")
     ax.legend(loc="upper right", fontsize=8)
     plotstyle(ax)
 
@@ -860,10 +862,10 @@ def fig10():
                "cling into solids, smooth ones slide as liquids. A purely philosophical idea for 2,200 years.")
     clean(ax, xlim=(0, 10), ylim=(0, 7))
     rng = np.random.default_rng(4)
-    for k in range(26):
+    for k in range(22):
         cx, cy = rng.uniform(0.6, 9.4), rng.uniform(0.6, 6.4)
         nv = rng.integers(3, 7)
-        rr = rng.uniform(0.22, 0.42)
+        rr = rng.uniform(0.35, 0.6)
         ang = np.sort(rng.uniform(0, 2 * np.pi, nv))
         pts = np.c_[cx + rr * np.cos(ang), cy + rr * np.sin(ang)]
         ax.add_patch(Polygon(pts, fc=PALETTE[k % 6], ec="none", alpha=0.85))
@@ -877,9 +879,9 @@ def fig10():
     ax = panel(fig, cs[2], 3, "Chemical atoms", "Lavoisier 1789 · Dalton 1808", "phys",
                "Elements combine in fixed whole-number ratios: 12 g of carbon takes 16 g or 32 g of oxygen (ratio "
                "1 : 2). Dalton's atoms explain it — though he guessed water was HO, not H₂O.")
-    clean(ax, xlim=(0, 10), ylim=(0, 7))
+    clean(ax, xlim=(0, 18), ylim=(0.4, 6.9))
 
-    def dalton(x, y, kind, r=0.38):
+    def dalton(x, y, kind, r=0.42):
         if kind == "H":
             ax.add_patch(Circle((x, y), r, fc="white", ec=INK, lw=1.3))
             ax.add_patch(Circle((x, y), 0.07, fc=INK))
@@ -892,20 +894,21 @@ def fig10():
             ax.plot([x, x], [y - r, y + r], color=INK, lw=1.3)
 
     for k, (sym, name) in enumerate([("H", "hydrogen"), ("O", "oxygen"), ("C", "carbon"), ("N", "nitrogen")]):
-        dalton(1.0 + k * 2.4, 6.0, sym)
-        ax.text(1.0 + k * 2.4, 5.3, name, ha="center", fontsize=8.5)
-    ax.text(0.3, 4.15, "water:", fontsize=9.5, va="center")
-    dalton(2.4, 4.15, "H"); dalton(3.15, 4.15, "O")
-    ax.text(3.9, 4.15, "Dalton's HO", fontsize=8.5, color="#c62828", va="center")
-    dalton(6.2, 4.15, "H"); dalton(6.95, 4.15, "O"); dalton(7.7, 4.15, "H")
-    ax.text(8.25, 4.15, "H₂O", fontsize=9.5, color="#2e7d32", va="center")
-    ax.text(0.3, 2.4, "CO:", fontsize=9.5, va="center")
-    dalton(1.6, 2.4, "C"); dalton(2.35, 2.4, "O")
-    ax.text(3.0, 2.4, "12 : 16", fontsize=9.5, va="center", color=MATH)
-    ax.text(5.0, 2.4, "CO₂:", fontsize=9.5, va="center")
-    dalton(6.3, 2.4, "O"); dalton(7.05, 2.4, "C"); dalton(7.8, 2.4, "O")
-    ax.text(8.45, 2.4, "12 : 32", fontsize=9.5, va="center", color=MATH)
-    ax.text(5, 0.9, "law of multiple proportions: 16 : 32 = 1 : 2", ha="center", fontsize=9.5, color=MATH)
+        dalton(2.5 + k * 4.3, 6.1, sym)
+        ax.text(2.5 + k * 4.3, 5.3, name, ha="center", fontsize=8.5)
+    ax.text(0.3, 4.1, "water", fontsize=9.5, va="center")
+    dalton(3.6, 4.1, "H"); dalton(4.5, 4.1, "O")
+    ax.text(5.2, 4.1, "Dalton: HO ✗", fontsize=8.8, color="#c62828", va="center")
+    dalton(11.0, 4.1, "H"); dalton(11.9, 4.1, "O"); dalton(12.8, 4.1, "H")
+    ax.text(13.5, 4.1, "H₂O ✓", fontsize=9.5, color="#2e7d32", va="center")
+    ax.text(0.3, 2.5, "CO", fontsize=9.5, va="center")
+    dalton(3.6, 2.5, "C"); dalton(4.5, 2.5, "O")
+    ax.text(5.2, 2.5, "C : O = 12 : 16", fontsize=9.2, va="center", color=MATH)
+    ax.text(9.4, 2.5, "CO₂", fontsize=9.5, va="center")
+    dalton(11.0, 2.5, "O"); dalton(11.9, 2.5, "C"); dalton(12.8, 2.5, "O")
+    ax.text(13.5, 2.5, "12 : 32", fontsize=9.2, va="center", color=MATH)
+    ax.text(9, 1.0, "law of multiple proportions: oxygen per 12 g carbon is 16 : 32 = 1 : 2", ha="center",
+            fontsize=9.2, color=MATH)
 
     ax = panel(fig, cs[3], 4, "The periodic system", "Mendeleev 1869", "both",
                "Ordering elements by weight reveals repeating chemical families. Mendeleev left gaps and predicted "
@@ -968,7 +971,9 @@ def fig10():
     for n in range(1, 7):
         E = -13.6057 / n ** 2
         ax.plot([0, 10], [E, E], color=INK, lw=1.2)
-        ax.text(10.2, E, f"n = {n}" if n < 6 else "n = 6 …", fontsize=8.2, va="center")
+        if n <= 3:
+            ax.text(10.2, E, f"n = {n}", fontsize=8.2, va="center")
+    ax.text(10.2, -0.45, "n = 4, 5, 6…", fontsize=7.8, va="center")
     for k, n in enumerate(range(2, 6)):
         ax.annotate("", xy=(0.7 + k * 0.4, -13.6057), xytext=(0.7 + k * 0.4, -13.6057 / n ** 2),
                     arrowprops=dict(arrowstyle="-|>", color="#8e44ad", lw=1.2))
@@ -976,12 +981,12 @@ def fig10():
         wl = 1e9 / (Rh * (1 / 4 - 1 / n ** 2))
         ax.annotate("", xy=(3.8 + k * 0.9, -13.6057 / 4), xytext=(3.8 + k * 0.9, -13.6057 / n ** 2),
                     arrowprops=dict(arrowstyle="-|>", color=wavelength_rgb(wl), lw=2.2))
-        ax.text(3.8 + k * 0.9, -3.75 - (k % 2) * 0.75, f"{wl:.0f}", fontsize=7.8, ha="center", color=INK)
+        ax.text(3.8 + k * 0.9, -4.1 - (k % 2) * 0.8, f"{wl:.0f}", fontsize=7.8, ha="center", color=INK)
     for k, n in enumerate(range(4, 7)):
         ax.annotate("", xy=(8.0 + k * 0.5, -13.6057 / 9), xytext=(8.0 + k * 0.5, -13.6057 / n ** 2),
                     arrowprops=dict(arrowstyle="-|>", color="#922b21", lw=1.2))
     ax.text(1.3, -12.5, "Lyman\n(UV)", fontsize=8, color="#8e44ad")
-    ax.text(5.15, -5.4, "Balmer (visible, nm)", fontsize=8, ha="center")
+    ax.text(5.15, -6.3, "Balmer (visible, nm)", fontsize=8, ha="center")
     ax.text(8.5, -2.2, "Paschen (IR)", fontsize=8, color="#922b21", ha="center")
     ax.set_xlim(0, 11.3)
     ax.set_ylim(-14.5, 0.8)
@@ -1001,7 +1006,7 @@ def fig10():
         r = np.hypot(x, z) + 1e-9
         d = fn(r, z / r)
         a.imshow(d / d.max(), extent=(-L, L, -L, L), cmap="magma", origin="lower")
-        a.set_title(name, fontsize=10)
+        a.text(-0.9 * L, 0.85 * L, name, color="white", fontsize=11, weight="bold", va="center")
         clean(a)
 
     ax = panel(fig, cs[8], 9, "The Standard Model", "1961 – 1975 · Higgs found 2012", "both",
